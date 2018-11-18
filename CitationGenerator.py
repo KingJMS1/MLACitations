@@ -1,5 +1,6 @@
-from docx import Document
 from appJar import gui
+from docx import Document
+
 from Citation import Citation
 
 # auth = "Mahlon Scott"
@@ -26,8 +27,7 @@ def saveCitation(button):
         tit = app.getEntry("Title:")
         cont = app.getEntry("Container:")
         ver = app.getEntry("Version:")
-        #FIX!
-        vol = app.getEntry("Volume, Number:").split(", ")
+        vol = app.getEntry("Volume, Number:")
         pub = app.getEntry("Publisher:")
         pdate = app.getEntry("Date Published:")
         loc = app.getEntry("Location:")
@@ -44,6 +44,8 @@ def saveCitation(button):
             ver = None
         if vol == "":
             vol = None
+        else:
+            vol = vol.split(", ")
         if pub == "":
             pub = None
         if pdate == "":
@@ -72,7 +74,7 @@ def saveCitation(button):
         tit = app.getEntry("Title:")
         cont = app.getEntry("Container:")
         ver = app.getEntry("Version:")
-        vol = app.getEntry("Volume, Number:").split(", ")
+        vol = app.getEntry("Volume, Number:")
         pub = app.getEntry("Publisher:")
         pdate = app.getEntry("Date Published:")
         loc = app.getEntry("Location:")
@@ -88,6 +90,8 @@ def saveCitation(button):
             ver = None
         if vol == "":
             vol = None
+        else:
+            vol = vol.split(", ")
         if pub == "":
             pub = None
         if pdate == "":
